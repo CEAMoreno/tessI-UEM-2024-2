@@ -1,0 +1,61 @@
+Conforme o trabalho foi se desenvolvendo, alguns obstáculos se destacaram o que tornou algumas mudanças obrigatórias.
+O trabalho está sendo desenvolvido em Python e programado no PyCharm.
+Os pacotes utilizados no desenvolvimento foram o "panda" devido a sua capacidade de manipulação e análise de dados em Python. Permite trabalhar com tabelas (DataFrames) 
+e séries de dados (Series), facilitando leitura, filtragem, agrupamento e análise com arquivos CSV ou Excel.
+A função "train_test_split" do pacote "sklearn.model_selection" permite dividir um conjunto de dados em duas partes: treino e teste. Sendo o treino usado para treinar o modelo e o teste
+para avaliar seu desempenho.
+A função "RandomForestClassifier" do pacote "sklearn.ensemble" age como um modelo de aprendizado de máquina que cria várias "árvores de decisão" e combina seus resultados e classifica
+esses dados.
+A função "accuracy_score" do pacote "sklearn.metrics" tem como função medir a precisão de um modelo, ou seja, sua porcentagem de acertos. Compara valores previtos com os reais para ver
+quão bem o modelo funcionou.
+
+Inicialmente fora escolhido um dataset muito grande e após conversar com o professor e o mesmo mostrar trabalhos referentes ao CWE, migrei para um dataset do CWE em CSV chamado:
+"CWE VIEW: Weaknesses in the 2023 CWE Top 25 Most Dangerous Software Weaknesses"
+O mesmo lida com as seguintes vulneravilidades de software.
+
+1425 - Weaknesses in the 2023 CWE Top 25 Most Dangerous Software Weaknesses
+*BaseOut-of-bounds Write - (787)
+*BaseImproper Neutralization of Input During Web Page Generation ('Cross-site Scripting') - (79)
+*BaseImproper Neutralization of Special Elements used in an SQL Command ('SQL Injection') - (89)
+*VariantUse After Free - (416)
+*BaseImproper Neutralization of Special Elements used in an OS Command ('OS Command Injection') - (78)
+*ClassImproper Input Validation - (20)
+*BaseOut-of-bounds Read - (125)
+*BaseImproper Limitation of a Pathname to a Restricted Directory ('Path Traversal') - (22)
+*CompositeCross-Site Request Forgery (CSRF) - (352)
+*BaseUnrestricted Upload of File with Dangerous Type - (434)
+*ClassMissing Authorization - (862)
+*BaseNULL Pointer Dereference - (476)
+*ClassImproper Authentication - (287)
+*BaseInteger Overflow or Wraparound - (190)
+*BaseDeserialization of Untrusted Data - (502)
+*ClassImproper Neutralization of Special Elements used in a Command ('Command Injection') - (77)
+*ClassImproper Restriction of Operations within the Bounds of a Memory Buffer - (119)
+*BaseUse of Hard-coded Credentials - (798)
+*BaseServer-Side Request Forgery (SSRF) - (918)
+*BaseMissing Authentication for Critical Function - (306)
+*ClassConcurrent Execution using Shared Resource with Improper Synchronization ('Race Condition') - (362)
+*ClassImproper Privilege Management - (269)
+*BaseImproper Control of Generation of Code ('Code Injection') - (94)
+*ClassIncorrect Authorization - (863)
+*BaseIncorrect Default Permissions - (276)
+
+O código implementado está sendo abordado individualmente para que a base de dados seja estável visto que apesar do dataset ser bem completo, o mesmo possui mais de 20 colunas de 
+informação e algumas delas se encontram em branco. Foi então que uma abordagem de cortar as informações desnecessárias foi tomada ficando com somente com as colunas:
+
+CWE-ID: Número identificador único para cada vulnerabilidade.
+Name: Breve nome descrevendo sua característica.
+Status: Dividida em Ativo, Obsoleto ou Estável usado para classificação (Active, Deprecated, or Stable)
+Description: Descrição mais abrangente da vulnerabilidade e com capacidade para ser usado em NLP (Natural Language Processing).
+Likelihood of Exploit: Indica o quando a vulnerabilidade pode ser explorada. Coluna valiosa para predictive modeling.
+Detection Methods: Oferece métodos para identificar a vulnerabilidade.
+Demonstrative Examples: É aqui que os exemplos de código são exemplificados.
+Potential Mitigations: Descreve como pode ser previnida ou mitigada. Podendo conter dados técnicos.
+
+Por eu estar fazendo sozinho e ter a reviravolta de trocar datasets e parâmetros, o código como um todo foi trocado. Más esse dataset é muito mais organizado e as colunas críticas para
+o treino já foram escolhidas então agora estou no processo de alimentar aos poucos o que é e o que não é pra começar o treinamento.
+
+
+
+
+
